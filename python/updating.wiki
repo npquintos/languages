@@ -10,5 +10,19 @@ TAG: proxy, authentication, web, connection
   
 TAG: wheel, pip, setuptools
 # Installing pip, wheel, setuptools
-- Download **get-pip.py**  at https://bootstrap.pypa.io/get-pip.py
-- run **python get-pip.py**
+- Download *get-pip.py*  at https://bootstrap.pypa.io/get-pip.py
+- run *python get-pip.py --target=z:\path\to\installation\directory* if you cannot write to your python library directory
+
+TAG: install, pip
+# Package installation using pip.
+Normally, if pip executable is accessible from the terminal,
+
+pip install <package name>
+
+However, if pip is only available as a module (i.e. you could import it from IDLE but not invoke it directly from terminal),
+
+python -m pip install <package name>
+
+If you want to upgrade to latest version for a module,
+
+python -m pip install --upgrade <module name>
