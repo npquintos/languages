@@ -1,0 +1,24 @@
+## Getting file extension of current file ##
+let file_extension = expand('%:e')
+
+## Searching for files with specific extension in a particular order ##
+## when using 'gf'
+
+augroup suffixes
+    autocmd!
+
+    let associations = [
+                \["javascript", ".js,.javascript,.es,.esx,.json"],
+                \["python", ".py,.pyw"]
+                \]
+
+    for ft in associations
+        execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
+    endfor
+augroup END
+
+## getting the word under the cursor ##
+let word_under_cursor = expand("<cword>")
+
+## getting the line under the cursor ##
+let current_line = getline(".")
