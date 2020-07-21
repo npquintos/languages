@@ -1,0 +1,8 @@
+## undefined reference to __weirdFunction
+This could mean that the library or object file that contains the definition of __weirdFunction could not be found from the 
+specified libraries and object files in the CMakeLists.txt. You have to search for this definition in the libraries and
+include it in the CMakeLists.txt. How?
+1.  Go to the library directory and run
+nm -o *.a | grep __weirdFunction
+a flag of U meant it is undefined in that library.
+a flag of T meant it is defined there. Include this library in CMakeLists.txt
