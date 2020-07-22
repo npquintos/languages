@@ -5,4 +5,4 @@ include it in the CMakeLists.txt. How?
 1.  Go to the library directory and run
 nm -o *.a | grep __weirdFunction
 a flag of U meant it is undefined in that library.
-a flag of T meant it is defined there. Include this library in CMakeLists.txt
+flags other than U meant it is defined there. Include this library in CMakeLists.txt
