@@ -4,9 +4,8 @@ TAG: proxy, authentication, web, connection
   - Address (e.g. proxy)
   - Port (e.g. 8080)
 - set the https_proxy environment variable as follows:
-
       set https_proxy=http://<username>:<password>@<Address>:<Port>
-      e.g. *set https_proxy=http://john:wda34Kyl32@proxy:8080*
+      e.g. set https_proxy=http://john:wda34Kyl32@proxy:8080
   
 TAG: wheel, pip, setuptools
 # Installing pip, wheel, setuptools
