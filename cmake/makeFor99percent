@@ -1,0 +1,19 @@
+Note: This was taken from http://nuclear.mutantstargoat.com/articles/make/
+
+Let's say you have some source files under src/, other source files under, src/engine, 
+and some more source files under src/audio. Also, to make it more interesting, let's assume 
+that your code is a mix of C and C++ in any of these directories. Here's a very simple 
+modification which handles this situation:
+
+csrc = $(wildcard src/*.c) \
+       $(wildcard src/engine/*.c) \
+       $(wildcard src/audio/*.c)
+ccsrc = $(wildcard src/*.cc) \
+        $(wildcard src/engine/*.cc) \
+        $(wildcard src/audio/*.cc)
+obj = $(csrc:.c=.o) $(ccsrc:.cc=.o)
+
+LDFLAGS = -lGL -lglut -lpng -lz -lm
+
+mygame: $(obj)
+    $(CXX) -o $@ $^ $(LDFLAGS)
