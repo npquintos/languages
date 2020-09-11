@@ -7,7 +7,7 @@ C - function:
         printf("%s\n", message);  
     }  
 
-cpp code calling the c function:  
+cpp code calling the c function:   
     std::string message{"I am from C++"};  
     print_message_c_version(message.c_str());  
     
