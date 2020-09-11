@@ -1,20 +1,19 @@
 ---------------------------------------
-> Passing a string object to a C function accepting a char *
+Passing a string object to a C function accepting a char *
 
-> C - function:          
+C - function:          
     void print_message_c_version(char *message)  
     {  
         printf("%s\n", message);  
     }  
 
-> cpp code calling the c function:  
-
+cpp code calling the c function:  
     std::string message{"I am from C++"};  
     print_message_c_version(message.c_str());  
     
 -------------------------------------  
-> Concatenating string literals:  
+Concatenating string literals:  
     std::string full_name = std::string("noel") + std::string("quintos");    
 
-> or, taking advantage of auto-conversion,  
+or, taking advantage of auto-conversion,  
     std::string full_name = std::string("noel") + "quintos";    
