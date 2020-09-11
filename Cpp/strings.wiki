@@ -1,7 +1,7 @@
 ---------------------------------------
 Passing a string object to a C function accepting a char *
 
-C - function:  
+C - function:          
 `void print_message_c_version(char *message)  
 {  
     printf("%s\n", message);  
