@@ -6,3 +6,4 @@ include it in the CMakeLists.txt. How?
 nm -o *.a | grep __weirdFunction
 a flag of U meant it is undefined in that library.
 flags other than U meant it is defined there. Include this library in CMakeLists.txt
+If **libA** has undefined references and those references may be found in **libX**, you should place libA ahead of libX in **target_link_libraries**. Remember, order of placement **matter**
