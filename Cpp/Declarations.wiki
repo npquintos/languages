@@ -1,0 +1,10 @@
+// function declaration prototype
+
+[[nodiscard]] constexpr auto function_name(const &int arg) const noexcept(true) -> Type{return whatever;}
+[[nodiscard]] - returned value of this function cannot be ignored; it has to be stored to a variable or will produce compilation error.
+constexpr - evaluate the value at compile time if everything is known in advance; otherwise, delete this keyword
+const before noexcept - applies to class member functions only! It means the function will not change private variable values of this class
+noexcept(true) - this function will never throw any exception; change it to false if it does. Compiled code with this keyword has some optimizations compared to those without.
+
+// Lambda Expression declaration prototype.
+auto value = [this]() [[nodiscard]] noexcept(true) -> Type {return whatever;};
