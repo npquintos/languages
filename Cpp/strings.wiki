@@ -20,7 +20,7 @@ or, taking advantage of auto-conversion,
     std::string full_name = std::string("noel") + "quintos";    
 
 --------------------------------------
-When passing string literal to a function, use "const char *" declaration on receiving function
+To get rid of "warning: deprecated conversion from string constant to ‘char*’" during compilation when passing string literal to a function, use "const char *" declaration on receiving function
 eg.
 '''
    void print(const char* ch) {
