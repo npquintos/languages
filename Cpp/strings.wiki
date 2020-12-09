@@ -18,3 +18,17 @@ Concatenating string literals:
 
 or, taking advantage of auto-conversion,  
     std::string full_name = std::string("noel") + "quintos";    
+
+--------------------------------------
+When passing string literal to a function, use "const char *" declaration on receiving function
+eg.
+'''
+   void print(const char* ch) {
+    std::cout<<ch;
+   }
+
+   int main() {
+       print("Hello");
+       return 0;
+   }
+ '''
