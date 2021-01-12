@@ -1,0 +1,16 @@
+if your function returns an object, best to use unique_ptr
+
+std::unique_ptr<ClassX> foo(params)
+{
+  std::unique_ptr<ClassX> result{new ClassX(otherParams)};
+  // fill result members with some calculations
+  
+  // then, return the result object to the calling main.
+  std::move(result);
+ }
+ 
+ int main()
+ {
+   std::unique_ptr<ClassX> var = foo(params);
+   ...
+ }
