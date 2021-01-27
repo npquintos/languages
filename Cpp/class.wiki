@@ -1,0 +1,8 @@
+If you have a class ClassEnclosing where class ClassMember is a member, you should use pointer to ClassMember instead and initialize pointer in constructor using "new"
+
+    class ClassEnclosing {
+        int i;
+        ClassMember *c;
+     };
+     
+   ClassEnclosing::ClassEnclosing(int i): i{i}, c{new ClassMember()} {}
