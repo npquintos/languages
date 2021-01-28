@@ -12,6 +12,7 @@ Removing "new" in the initialization of class member c results on it returning a
 
 A better approach would be
 
+        
         class ClassEnclosing {
             int i;
             ClassMember c;
