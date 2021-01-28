@@ -9,3 +9,14 @@ If you have a class ClassEnclosing where class ClassMember is a member, you shou
    ClassEnclosing::ClassEnclosing(int i): i{i}, c{new ClassMember()} {}
 
 Removing "new" in the initialization of class member c results on it returning a ClassMember object instead of a pointer to it. Also, the use of "new" creates the object in the heap and have to be manually deleted in the destructor.
+
+A better approach would be
+
+        class ClassEnclosing {
+            int i;
+            ClassMember c;
+        };
+  
+        ClassEnclosing::ClassEnclosing(int i): i{i}, c{ClassMember()} {}
+        
+This has the advantage of automatically deleting object c when the enclosing class gets out of scope because object c is created on the heap.
