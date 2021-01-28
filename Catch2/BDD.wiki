@@ -1,0 +1,23 @@
+Catch2 C++ Unit Testing Framework BDD style
+
+    
+      SCENARIO("major feature being tested - eg calculations are correct for any sets of data") {
+          GIVEN("common characteristics shared by the WHEN that follows - eg initializations that are shared by all WHEN") {
+              int count = 0;
+              float sum = 0;
+              WHEN("this is a particular case being tested - eg - positive numbers may be summed) {
+                  sum += add_this(1, 2, 3);
+                  CHECK(sum==6);
+              } // when you reach this point, logic goes back to the start of the GIVEN block. count and sum are re-initialized to zero.
+              WHEN("this is another particular case being tested - eg - negative numbers may be summed) {
+                  sum += add_this(-1, -2, -3);
+                  CHECK(sum==-6);
+                  THEN("this is a sub-test for this WHEN clause - e.g. and positives may be added as well {
+                      sum = add_this(sum, 6, 7);
+                      CHECK(sum==7);
+                  }
+              } // when you reach this point, logic goes back to the start of the GIVEN block. count and sum are re-initialized to zero.
+          }
+      }
+        
+        
