@@ -1,0 +1,8 @@
+class Base { 
+    unique_ptr<ClassX> pClassX;
+    public:
+      Base(ClassX initValue) : pClassX(std::make_unique<ClassX>(initValue) {}
+      virtual ~Base() = default;
+      Base(Base const &) = delete;
+      Base &operator=(Base const &) = delete;
+};
