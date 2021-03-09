@@ -1,4 +1,6 @@
 Say you have ClassX with member function foo() that uses template. Here is how to do it.
+
+
   class ClassX {
     public:
       template <typename T>
@@ -10,3 +12,6 @@ Say you have ClassX with member function foo() that uses template. Here is how t
   {
     T var1 = ...
   }
+
+
+## You must define this function definition in the header file instad of ClassX.cpp file!
