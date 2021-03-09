@@ -1,0 +1,12 @@
+Say you have ClassX with member function foo() that uses template. Here is how to do it.
+  class ClassX {
+    public:
+      template <typename T>
+      void foo();
+  }
+  
+  template <typename T>
+  void ClassX::foo()
+  {
+    T var1 = ...
+  }
