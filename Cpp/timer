@@ -1,0 +1,8 @@
+#include<chrono>
+std::chrono::time_point<std::chrono::system_clock> start_time = std::chrono::system_clock::now();
+while (true) {
+    // do something
+    std::chrono::minutes minutes_past = std::chrono::duration_cast<std::chrono::minutes> (std::chrono::system_clock::now() - start_time);
+    if (minutes_past.count() >= EXECUTION_DURATION)
+        break;
+ }
