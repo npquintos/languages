@@ -9,11 +9,11 @@
         Base &operator=(Base const &) = delete;
     };
 
-# To create a unique_ptr instance of an RValue:
+To create a unique_ptr instance of an RValue:
 
     std::unique_ptr<ClassX>(new ClassX(args))
 
-# this is useful for filling up vector with unique pointers
+this is useful for filling up vector with unique pointers
 
     std::vector<std::unique_ptr<ClassX>> vvv;
     vvv.push_back( std::unique_ptr<ClassX>(new ClassX(args));
@@ -21,7 +21,7 @@
     vvv[i]->method1();
     vvv[i]->member1;
 
-# Typical Class Definition for Rule of Zero would be:
+Typical Class Definition for Rule of Zero would be:
 
     class ClassC {
         private:
@@ -32,5 +32,5 @@
             std::container<std::unique_ptr<ClassY>> data; // if you have several classes to be placed in a std container, such as std::vector
     };
 
-# Accessor to private unique_ptr element should have the signature
+Accessor to private unique_ptr element should have the signature
     const std::unique_ptr<ClassC>& get_ptr_x() const { return ptr_x; } // you are returning the same pointer and not another variable due to &
