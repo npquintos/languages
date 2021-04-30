@@ -1,33 +1,36 @@
-class Base { 
-    std::unique_ptr<ClassX> pClassX; // use unique_ptr so that ClassX is auto-deleted
-    public:
-      Base(ClassX initValue) : pClassX(std::make_unique<ClassX>(new ClassX(initValue)) {}
-      // or
-      // Base(ClassX initValue) : pClassX(std::unique_ptr<ClassX>(new ClassX(initValue)) {}
-      virtual ~Base() = default;
-      Base(Base const &) = delete;
-      Base &operator=(Base const &) = delete;
-};
+    class Base { 
+        std::unique_ptr<ClassX> pClassX; // use unique_ptr so that ClassX is auto-deleted
+        public:
+        Base(ClassX initValue) : pClassX(std::make_unique<ClassX>(new ClassX(initValue)) {}
+        // or
+         // Base(ClassX initValue) : pClassX(std::unique_ptr<ClassX>(new ClassX(initValue)) {}
+        virtual ~Base() = default;
+        Base(Base const &) = delete;
+        Base &operator=(Base const &) = delete;
+    };
 
 # To create a unique_ptr instance of an RValue:
-std::unique_ptr<ClassX>(new ClassX(args))
+
+    std::unique_ptr<ClassX>(new ClassX(args))
 
 # this is useful for filling up vector with unique pointers
-std::vector<std::unique_ptr<ClassX>> vvv;
-vvv.push_back( std::unique_ptr<ClassX>(new ClassX(args));
-To retrieve ClassX method or members:
-vvv[i]->method1();
-vvv[i]->member1;
+
+    std::vector<std::unique_ptr<ClassX>> vvv;
+    vvv.push_back( std::unique_ptr<ClassX>(new ClassX(args));
+    To retrieve ClassX method or members:
+    vvv[i]->method1();
+    vvv[i]->member1;
 
 # Typical Class Definition for Rule of Zero would be:
-class ClassC {
-    private:
-        const std::unique_ptr<ClassX> ptr_x; // for class member
-        // fill-in with value later on, either in constructor -> ClassC(arg_x) : ptr_x(std::unique_ptr<ClassX>(new ClassX(arg_x)))
-        // or
-        // ptr_x = std::move(another_unique_ptr_variable);
-        std::container<std::unique_ptr<ClassY>> data; // if you have several classes to be placed in a std container, such as std::vector
-};
+
+    class ClassC {
+        private:
+            const std::unique_ptr<ClassX> ptr_x; // for class member
+            // fill-in with value later on, either in constructor -> ClassC(arg_x) : ptr_x(std::unique_ptr<ClassX>(new ClassX(arg_x)))
+            // or
+            // ptr_x = std::move(another_unique_ptr_variable);
+            std::container<std::unique_ptr<ClassY>> data; // if you have several classes to be placed in a std container, such as std::vector
+    };
 
 # Accessor to private unique_ptr element should have the signature
-const std::unique_ptr<ClassC>& get_ptr_x() const { return ptr_x; } // you are returning the same pointer and not another variable due to &
+    const std::unique_ptr<ClassC>& get_ptr_x() const { return ptr_x; } // you are returning the same pointer and not another variable due to &
