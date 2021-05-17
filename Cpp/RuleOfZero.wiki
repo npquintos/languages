@@ -34,3 +34,31 @@ Typical Class Definition for Rule of Zero would be:
 
 Accessor to private unique_ptr element should have the signature
     const std::unique_ptr<ClassC>& get_ptr_x() const { return ptr_x; } // you are returning the same pointer and not another variable due to &
+    
+
+Suppose you have member classes
+    std::shared_ptr<ClassX> economy;
+    std::shared_ptr<ClassX> business_class;
+    std::shared_ptr<ClassX> first_class;
+    std::vector<std::shared_ptr<ClassX>> vv;
+    
+Now, what you want is to store these variables aaa, bbb, and ccc into vector vv because you are initializing these classes via vector vv like this:
+    while(fin >> x >> y >> z >> u) {
+        vv.push_back(std::shared_ptr<ClassX> new ClassX(x, y, z, u));
+      }
+      
+instead of accessing class member via
+    vv[0]->member1;
+    
+what you want is a more meaningful access like
+    economy->member1;
+    
+what you need to do is, after populating the vector vv using the code above, you may then 'assign' the vector elements into meaningful name via:
+    economy = vv[0];
+    business_class = vv[1];
+    first_class = vv[2];
+    
+ Then, after this, you could say
+    economy->price instead of vv[0]->price
+    first_class->meal instead of vv[2]->meal
+    
