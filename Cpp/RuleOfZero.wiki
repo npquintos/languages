@@ -48,7 +48,7 @@ Now, what you want is to store these variables aaa, bbb, and ccc into vector vv 
 
     while(fin >> x >> y >> z >> u) {
         vv.push_back(std::shared_ptr<ClassX> new ClassX(x, y, z, u));
-      }
+     }
       
 instead of accessing class member via
 
