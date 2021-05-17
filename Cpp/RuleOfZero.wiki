@@ -22,7 +22,7 @@ this is useful for filling up vector with unique pointers
     vvv[i]->member1;
 
 Typical Class Definition for Rule of Zero would be:
-
+'''
     class ClassC {
         private:
             const std::unique_ptr<ClassX> ptr_x; // for class member
@@ -31,11 +31,13 @@ Typical Class Definition for Rule of Zero would be:
             // ptr_x = std::move(another_unique_ptr_variable);
             std::container<std::unique_ptr<ClassY>> data; // if you have several classes to be placed in a std container, such as std::vector
     };
+ '''
 
 Accessor to private unique_ptr element should have the signature
 
+'''
     const std::unique_ptr<ClassC>& get_ptr_x() const { return ptr_x; } // you are returning the same pointer and not another variable due to &
-    
+'''   
 
 Suppose you have member classes
 
