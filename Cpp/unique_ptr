@@ -6,7 +6,14 @@ std::unique_ptr<ClassX> foo(params)
   // fill result members with some calculations
   
   // then, return the result object to the calling main.
-  std::move(result);
+  return std::move(result);
+  
+  // or better yet,
+  auto result = std::make_unique<ClassX>(params);
+  // more processing for result
+  
+  return result;
+  
  }
  
  int main()
