@@ -1,16 +1,16 @@
 If you have something like
 
-  int i = 6;
-  int *pi = &i;
+      int i = 6;
+      int *pi = &i;
   
 You could change i via pi as follows:
 
-  *pi = 10;    // i is now 10 as well;
+      *pi = 10;    // i is now 10 as well;
   
 You could also make pi point to another integer as well:
 
-  int j = 11;
-  pi = &j;
+      int j = 11;
+      pi = &j;
 
 What if, you want pi to always point to i and not point it to anywhere else? The declaration should now be:
 
