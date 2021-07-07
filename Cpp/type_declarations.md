@@ -5,13 +5,14 @@
         ^         ^   
         |         + ---- makes pi a const - i.e. - you cannot reassign pi value ---> pi = &j; // error; pi is permanently pointing to i and you are reassigning it to j
         + -------------- makes *pi a const - i.e. - you cannot change value of *pi
-
-# Details #
-     
+             
 A good way to remember this is:
 
-  const int i ----> i is a const and could not be changed
-  const int *j ----> *j is a const and could not be changed; however, you could still change the value of j as j is not a const
+      const int i ----> i is a const and could not be changed
+      const int *j ----> *j is a const and could not be changed; however, you could still change the value of j as j is not a const
+
+
+# Details #
 
 
 If you have something like
