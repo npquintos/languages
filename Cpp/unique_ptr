@@ -1,23 +1,15 @@
 if your function returns an object, best to use unique_ptr
 
-std::unique_ptr<ClassX> foo(params)
+auto foo(params) -> std::unique_ptr<ClassX>
 {
-  std::unique_ptr<ClassX> result{new ClassX(otherParams)};
-  // fill result members with some calculations
-  
-  // then, return the result object to the calling main.
-  return std::move(result);
-  
-  // or better yet,
   auto result = std::make_unique<ClassX>(params);
   // more processing for result
   
   return result;
-  
- }
+}
  
  int main()
  {
-   std::unique_ptr<ClassX> var = foo(params);
+  auto var = foo(params);
    ...
  }
