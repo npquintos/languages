@@ -3,6 +3,7 @@ if your function returns an object, best to use unique_ptr
 auto foo(params) -> std::unique_ptr<ClassX>
 {
   auto result = std::make_unique<ClassX>(params);
+auto result2 = std::make_unique<classX[10]>(params);
   // more processing for result
   
   return result;
