@@ -20,4 +20,4 @@ A better approach would be
   
         ClassEnclosing::ClassEnclosing(int i): i{i}, c{ClassMember()} {}
         
-This has the advantage of automatically deleting object c when the enclosing class gets out of scope because object c is created on the heap.
+This has the advantage of automatically deleting object c when the enclosing class gets out of scope because object c is created on the stack.
